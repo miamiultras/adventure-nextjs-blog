@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import PostCard from "@/components/PostCard";
-import { Post } from "@/interfaces/Post";
+import type { Post } from "@/interfaces/Post";
 
 interface HomeProps {
   posts: Post[];

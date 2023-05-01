@@ -8,7 +8,7 @@ interface PostCardProps {
 
 function PostCard({ post }: PostCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
       <Link href={`/posts/${post.slug}`}>
         <img
           className="w-full h-48 object-cover"
