@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import PostCard from "@/components/PostCard";
-import type { Post } from "@/interfaces/Post";
+import type { Post } from "@/interfaces";
 
 interface HomeProps {
   posts: Post[];
@@ -35,7 +35,7 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const req = await fetch(`http://localhost:3000/posts.json`);
+  const req = await fetch(`http://localhost:3000/data/posts.json`);
   const data = await req.json();
 
   return {

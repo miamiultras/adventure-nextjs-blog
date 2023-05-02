@@ -16,7 +16,7 @@ function Places({ places }: PlacesProps) {
             key={place.slug}
             className="m-4 w-64 h-64 relative overflow-hidden"
           >
-            <Link href="/">
+            <Link href={`/places/${place.slug}`}>
               <Image
                 src={place.image}
                 alt={place.title}
@@ -39,7 +39,7 @@ function Places({ places }: PlacesProps) {
 }
 
 export async function getStaticProps() {
-  const req = await fetch(`http://localhost:3000/places.json`);
+  const req = await fetch(`http://localhost:3000/data/places.json`);
   const data = await req.json();
 
   return {
