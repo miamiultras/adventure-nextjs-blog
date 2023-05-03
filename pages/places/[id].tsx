@@ -1,10 +1,36 @@
 import Image from "next/image";
 import { GetStaticPropsContext } from "next";
+import { PrismaClient } from "@prisma/client";
 
 import type { Place } from "@/interfaces";
 
 interface PlaceProps {
   place: Place;
+}
+
+const prisma = new PrismaClient();
+
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const place = await prisma.place.findUnique({
+    where: { slug: params?.id as string },
+  });
+
+  return {
+    props: { place },
+  };
+}
+
+export async function getStaticPaths() {
+  const places = await prisma.place.findMany();
+
+  const paths = places.map((place: Place) => {
+    return { params: { id: place.slug } };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export default function Place({ place }: PlaceProps) {
@@ -26,27 +52,4 @@ export default function Place({ place }: PlaceProps) {
       </section>
     </>
   );
-}
-
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const req = await fetch(`http://localhost:3000/data/${params?.id}.json`);
-  const data = await req.json();
-
-  return {
-    props: { place: data },
-  };
-}
-
-export async function getStaticPaths() {
-  const req = await fetch("http://localhost:3000/data/places.json");
-  const data = await req.json();
-
-  const paths = data.map((place: Place) => {
-    return { params: { id: place.slug } };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
 }

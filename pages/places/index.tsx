@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PrismaClient } from "@prisma/client";
 
 import type { Place } from "@/interfaces";
 
 interface PlacesProps {
   places: Place[];
+}
+
+const prisma = new PrismaClient();
+
+export async function getStaticProps() {
+  const places = await prisma.place.findMany();
+
+  return {
+    props: { places },
+  };
 }
 
 function Places({ places }: PlacesProps) {
@@ -36,15 +47,6 @@ function Places({ places }: PlacesProps) {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const req = await fetch(`http://localhost:3000/data/places.json`);
-  const data = await req.json();
-
-  return {
-    props: { places: data },
-  };
 }
 
 export default Places;
