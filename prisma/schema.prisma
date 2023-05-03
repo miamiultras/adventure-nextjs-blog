@@ -10,4 +10,15 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+model Place {
+  slug  String @id @default(cuid())
+  title String
+  image String
+}
 
+model Post {
+  slug    String @id @default(cuid())
+  title   String
+  image   String
+  excerpt String
+}
