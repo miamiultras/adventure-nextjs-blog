@@ -1,10 +1,21 @@
 import Image from "next/image";
+import { PrismaClient } from "@prisma/client";
 
 import PostCard from "@/components/PostCard";
 import type { Post } from "@/interfaces";
 
 interface HomeProps {
   posts: Post[];
+}
+
+const prisma = new PrismaClient();
+
+export async function getStaticProps() {
+  const posts = await prisma.post.findMany();
+
+  return {
+    props: { posts },
+  };
 }
 
 export default function Home({ posts }: HomeProps) {
@@ -32,13 +43,4 @@ export default function Home({ posts }: HomeProps) {
       </section>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const req = await fetch(`http://localhost:3000/data/posts.json`);
-  const data = await req.json();
-
-  return {
-    props: { posts: data },
-  };
 }
