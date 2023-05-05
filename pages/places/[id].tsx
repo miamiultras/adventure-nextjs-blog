@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { GetStaticPropsContext } from "next";
 import { PrismaClient } from "@prisma/client";
 
+import { HeroSection } from "@/components";
 import type { Place } from "@/interfaces";
 
 interface PlaceProps {
@@ -36,17 +36,11 @@ export async function getStaticPaths() {
 export default function Place({ place }: PlaceProps) {
   return (
     <>
-      <section className="h-screen w-screen relative">
-        <Image
-          src={place.image}
-          alt={place.title}
-          fill
-          objectFit="cover"
-          quality={100}
-          placeholder="blur"
-          blurDataURL={place.image}
-        />
-      </section>
+      <HeroSection
+        title={place.title}
+        subtitle={place.description}
+        image={place.image}
+      />
       <section className="bg-white py-24">
         <div className="container mx-auto px-4">Details...</div>
       </section>

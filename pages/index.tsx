@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { PrismaClient } from "@prisma/client";
 
-import PostCard from "@/components/PostCard";
+import { PostCard, HeroSection } from "@/components";
 import type { Post } from "@/interfaces";
 
 interface HomeProps {
@@ -21,17 +20,11 @@ export async function getStaticProps() {
 export default function Home({ posts }: HomeProps) {
   return (
     <>
-      <section className="h-screen w-screen relative">
-        <Image
-          src="/images/background.jpg"
-          alt="backgroundImage"
-          fill
-          objectFit="cover"
-          quality={100}
-          placeholder="blur"
-          blurDataURL="/images/background.jpg"
-        />
-      </section>
+      <HeroSection
+        title="Adventure Blog"
+        subtitle="Adventure Blog bla bla bla bla bla lorem bla ipsum bla bla"
+        image="/images/background.jpg"
+      />
       <section className="bg-white py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,13 +1,12 @@
 import { ReactNode } from "react";
 
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+import { Navbar } from "../Navbar";
+import { Footer } from "../Footer";
 
 interface LayoutProps {
   children: ReactNode;
 }
-
-export default function Layout({ children }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   return (
     <>
       <Navbar />
@@ -16,3 +15,5 @@ export default function Layout({ children }: LayoutProps) {
     </>
   );
 }
+
+export { Layout };

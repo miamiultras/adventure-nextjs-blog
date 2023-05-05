@@ -3,7 +3,7 @@ import Link from "next/link";
 function Navbar() {
   return (
     <section className="relative">
-      <nav className="z-10 absolute top-0 left-0 w-full p-4 flex items-center justify-between text-gray-900">
+      <nav className="z-10 w-full p-4 flex items-center justify-between text-gray-900">
         <h1 className="text-3xl font-bold">Logo</h1>
         <ul className="flex">
           <li className="ml-4">
@@ -27,4 +27,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export { Navbar };
