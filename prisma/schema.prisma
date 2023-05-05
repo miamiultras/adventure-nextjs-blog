@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Place {
-  slug  String @id @default(cuid())
-  title String
-  image String
+  slug        String @id @default(cuid())
+  title       String
+  description String
+  image       String
 }
 
 model Post {

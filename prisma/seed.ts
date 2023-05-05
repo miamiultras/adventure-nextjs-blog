@@ -6,61 +6,73 @@ const places = [
   {
     slug: "place-1",
     title: "Beach Paradise",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ny.jpg",
   },
   {
     slug: "place-2",
     title: "Mountain Retreat",
+    description: "Sydney is the largest city in Australia and is known for its beautiful beaches, harbor, and landmarks. Some of the top attractions in Sydney include the Sydney Opera House, the Sydney Harbour Bridge, and Bondi Beach. Sydney also has a vibrant arts and culture scene.",
     image: "/images/lapaz.jpg",
   },
   {
     slug: "place-3",
     title: "City Escape",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ee.jpg",
   },
   {
     slug: "place-4",
     title: "Nature's Beauty",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ny.jpg",
   },
   {
     slug: "place-5",
     title: "Island Adventure",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/sag.jpg",
   },
   {
     slug: "place-6",
     title: "Historic Wonders",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/holly.jpg",
   },
   {
     slug: "place-7",
     title: "Desert Oasis",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/background.jpg",
   },
   {
     slug: "place-8",
     title: "Tropical Paradise",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ny.jpg",
   },
   {
     slug: "place-9",
     title: "Countryside Retreat",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ee.jpg",
   },
   {
     slug: "place-10",
     title: "Countryside Retreat",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/holly.jpg",
   },
   {
     slug: "place-11",
     title: "Countryside Retreat",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/ny.jpg",
   },
   {
     slug: "place-12",
     title: "Countryside Retreat",
+    description: "Tokyo is the capital of Japan and is known for its vibrant culture, food, and technology. Some of the top attractions in Tokyo include the Tokyo Tower, the Imperial Palace, and the Meiji Shrine. Tokyo is also famous for its anime and manga culture.",
     image: "/images/background.jpg",
   },
 ];
