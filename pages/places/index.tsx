@@ -31,10 +31,8 @@ function Places({ places }: PlacesProps) {
               <Image
                 src={place.image}
                 alt={place.title}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-                className="hover:opacity-75 transition ease-in-out duration-300"
+                fill
+                className="hover:opacity-75 transition ease-in-out duration-300 object-cover"
               />
               <div className="w-full h-full flex items-center justify-center hover:opacity-75 transition ease-in-out duration-300">
                 <h2 className="z-10 text-2xl font-bold text-white py-4 px-6">

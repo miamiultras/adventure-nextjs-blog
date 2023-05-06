@@ -13,11 +13,10 @@ function HeroSection({ title, subtitle, image }: HeroSectionProps) {
         src={image}
         alt="backgroundImage"
         fill
-        objectFit="cover"
         quality={100}
         placeholder="blur"
         blurDataURL={image}
-        className="rounded-3xl"
+        className="rounded-3xl object-cover"
       />
       <h1 className="text-4xl md:text-6xl font-bold text-white z-10">
         {title}
