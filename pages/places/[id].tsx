@@ -1,4 +1,6 @@
 import { GetStaticPropsContext } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
 
 import { HeroSection } from "@/components";
@@ -45,8 +47,9 @@ export default function Place({ place }: PlaceProps) {
       <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-lg leading-9 font-medium text-gray-900 sm:text-xl sm:leading-10">
-            "Some inspiring quote ultricies sed, dolor. Cras elementum ultrices
-            diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            &quot;Some inspiring quote ultricies sed, dolor. Cras elementum
+            ultrices diam. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit&quot;
           </h2>
           <div className="mt-6 mb-10 text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
@@ -61,9 +64,9 @@ export default function Place({ place }: PlaceProps) {
           </div>
           <hr />
           <h3 className="text-lg leading-9 font-medium text-gray-900 sm:text-xl sm:leading-10 m-10">
-            "Some less inspiring quote ultricies sed, dolor. Cras elementum
+            &quot;Some less inspiring quote ultricies sed, dolor. Cras elementum
             ultrices diam. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit"
+            elit&quot;
           </h3>
           <div className="mt-6 mb-10 text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
@@ -89,19 +92,29 @@ export default function Place({ place }: PlaceProps) {
           {guides.map((place) => (
             <div
               key={place.title}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg"
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:opacity-90 transition ease-in-out duration-300"
             >
-              <img
-                className="w-full h-48 object-cover"
-                src={place.image}
-                alt={place.title}
-              />
-              <div className="p-6">
-                <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">
-                  {place.title}
-                </h3>
-                <p className="text-gray-700">{place.description}</p>
-              </div>
+              <Link href={`/places/${place.slug}`}>
+                <div className="relative h-48">
+                  <Image
+                    src={place.image}
+                    alt={place.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <h2 className="z-10 text-2xl font-bold text-white py-4 px-6">
+                      {place.title}
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">
+                    {place.title}
+                  </h3>
+                  <p className="text-gray-700">{place.description}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
