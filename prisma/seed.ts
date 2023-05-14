@@ -1,25 +1,43 @@
 import { PrismaClient } from "@prisma/client";
-
 import { places, posts } from "./mocks";
 
 const prisma = new PrismaClient();
 
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 async function seed() {
-  await prisma.place.deleteMany();
-  for (const place of places) {
-    await prisma.place.create({
-      data: place,
-    });
-  }
-
   await prisma.post.deleteMany();
-  for (const post of posts) {
-    await prisma.post.create({
-      data: post,
-    });
-  }
+  await prisma.place.deleteMany();
 
-  console.log(`Database has been seeded. 🌱`);
+  const createdPlaces = await Promise.all(
+    places.map(async (place) => {
+      return prisma.place.create({
+        data: {
+          slug: place.slug,
+          title: place.title,
+          description: place.description,
+          image: place.image,
+        },
+      });
+    })
+  );
+
+  posts.map(async (post) => {
+    const placeId = createdPlaces[getRandomInt(0, createdPlaces.length - 1)].id;
+    return prisma.post.create({
+      data: {
+        slug: post.slug,
+        title: post.title,
+        image: post.image,
+        excerpt: post.excerpt,
+        placeId,
+      },
+    });
+  });
 }
 
 seed()
