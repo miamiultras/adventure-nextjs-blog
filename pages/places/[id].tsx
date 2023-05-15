@@ -1,4 +1,5 @@
 import { GetStaticPropsContext } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
@@ -41,6 +42,9 @@ export async function getStaticPaths() {
 export default function Place({ place }: PlaceProps) {
   return (
     <>
+      <Head>
+        <title>{place.title}</title>
+      </Head>
       <HeroSection
         title={place.title}
         subtitle={place.description}
