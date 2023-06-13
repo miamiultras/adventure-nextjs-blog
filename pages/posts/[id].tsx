@@ -20,9 +20,9 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const places = await prisma.post.findMany();
+  const posts = await prisma.post.findMany();
 
-  const paths = places.map((post: Post) => {
+  const paths = posts.map((post: Post) => {
     return { params: { id: post.slug } };
   });
 
