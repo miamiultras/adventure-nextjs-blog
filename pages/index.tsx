@@ -1,4 +1,4 @@
-import { PostCard, HeroSection } from "@/components";
+import { PostCard, HeroSection, Layout, Container } from "@/components";
 import type { Post } from "@/interfaces";
 import prisma from "@/lib/prisma";
 
@@ -16,21 +16,21 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: HomeProps) {
   return (
-    <>
+    <Layout>
       <HeroSection
         title="Adventure Blog"
         subtitle="Adventure Blog bla bla bla bla bla lorem bla ipsum bla bla"
         image="/images/background.jpg"
       />
       <section className="bg-white py-24">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post: Post) => (
               <PostCard key={post.slug} post={post} />
             ))}
           </div>
-        </div>
+        </Container>
       </section>
-    </>
+    </Layout>
   );
 }
