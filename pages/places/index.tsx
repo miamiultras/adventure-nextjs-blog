@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
 
 import type { Place } from "@/interfaces";
+import prisma from "@/lib/prisma";
 
 interface PlacesProps {
   places: Place[];
 }
-
-const prisma = new PrismaClient();
 
 export async function getStaticProps() {
   const places = await prisma.place.findMany();

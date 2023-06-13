@@ -2,16 +2,14 @@ import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
 
 import { HeroSection } from "@/components";
 import type { Place } from "@/interfaces";
+import prisma from "@/lib/prisma";
 
 interface PlaceProps {
   place: Place;
 }
-
-const prisma = new PrismaClient();
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const place = await prisma.place.findUnique({

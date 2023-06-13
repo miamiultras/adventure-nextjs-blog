@@ -1,13 +1,10 @@
-import { PrismaClient } from "@prisma/client";
-
 import { PostCard, HeroSection } from "@/components";
 import type { Post } from "@/interfaces";
+import prisma from "@/lib/prisma";
 
 interface HomeProps {
   posts: Post[];
 }
-
-const prisma = new PrismaClient();
 
 export async function getStaticProps() {
   const posts = await prisma.post.findMany();

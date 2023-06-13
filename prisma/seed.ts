@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { places, posts } from "./mocks";
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma";
 
 function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);
