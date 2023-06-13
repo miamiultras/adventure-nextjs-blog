@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 function HeroSection({ title, subtitle, image }: HeroSectionProps) {
   return (
-    <section className="h-[calc(100vh-124px)] relative flex flex-col justify-end m-4 p-10">
+    <section className="h-[calc(100vh-112px)] relative flex flex-col justify-end m-4 mt-0 p-10">
       <Image
         src={image}
         alt="backgroundImage"
