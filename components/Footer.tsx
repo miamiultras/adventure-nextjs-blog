@@ -1,43 +1,34 @@
 import Link from "next/link";
+import { Container } from "./Container";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white px-4 py-8">
-      <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div>
-          <h3 className="text-lg font-semibold mb-2">About Us</h3>
-          <p className="text-gray-400">
+    <footer className="bg-neutral-50 border-t border-neutral-200">
+      <Container>
+        <div className="py-28 flex flex-col lg:flex-row items-center">
+          <h3 className="text-3xl lg:text-[1.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
             We are a team of passionate travelers who love to explore the world
-            and share our experiences with others.
-          </p>
+            and share our experiences with others.{" "}
+          </h3>
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
+            <Link href="/" className="mx-4 font-bold text-2xl hover:underline">
+              Home
+            </Link>
+            <Link
+              href="/places"
+              className="mx-4 font-bold text-2xl hover:underline"
+            >
+              About us
+            </Link>
+            <Link
+              href="/places"
+              className="mx-4 font-bold text-2xl hover:underline"
+            >
+              Places
+            </Link>
+          </div>
         </div>
-        <nav className="mt-4 md:mt-0 flex space-x-4">
-          <Link
-            href="/"
-            className="text-gray-400 hover:text-white transition duration-300"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="text-gray-400 hover:text-white transition duration-300"
-          >
-            About
-          </Link>
-          <Link
-            href="/blog"
-            className="text-gray-400 hover:text-white transition duration-300"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/contact"
-            className="text-gray-400 hover:text-white transition duration-300"
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
+      </Container>
     </footer>
   );
 }
