@@ -1,0 +1,45 @@
+.switch {
+  all: unset;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  display: inline-block;
+  color: currentColor;
+  border-radius: 50%;
+  border: 1px dashed currentColor;
+  cursor: pointer;
+  --size: 24px;
+  height: var(--size);
+  width: var(--size);
+  transition: all 0.3s ease-in-out 0s !important;
+}
+
+
+[data-mode="light"] .switch {
+  box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8)
+  inset #000;
+  border: none;
+  background: transparent;
+  animation: n linear 0.5s;
+}
+
+[data-mode="dark"] .switch {
+  box-shadow: calc(var(--size) / 50) calc(var(--size) / -50) calc(var(--size) / 80)
+  inset #000;
+  border: none;
+  background: radial-gradient(circle, yellow 50%, transparent 60%);
+  animation: n linear 0.5s;
+}
+
+@keyframes n {
+  40% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
