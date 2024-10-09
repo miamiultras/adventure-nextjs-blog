@@ -38,12 +38,11 @@ export const NoFOUCScript = (storageKey: string) => {
   /** function to add remove dark class */
   window.updateDOM = () => {
     const restoreTransitions = modifyTransition();
-    const mode = localStorage.getItem(storageKey) ?? DARK;
+    const systemPreference = media.matches ? DARK : LIGHT
+    const mode = localStorage.getItem(storageKey) ?? systemPreference;
     const classList = document.documentElement.classList;
-    if (mode === "system") {
-      classList.remove(DARK);
-      classList.remove(LIGHT);
-    } else if (mode === DARK) {
+    
+   if (mode === DARK) {
       classList.add(DARK);
       classList.remove(LIGHT);
     } else {
