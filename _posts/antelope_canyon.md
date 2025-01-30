@@ -1,5 +1,5 @@
 ---
-title: "antelope_canyon"
+title: "Antelope Canyon"
 excerpt: "Antelope Canyon: Nature's underground art gallery. This Arizona gem boasts surreal, wave-like rock formations and dramatic light beams. Perfect for adventurers and photographers looking to capture the ultimate shot. Get ready to be awed by the canyon's raw, untamed beauty."
 coverImage: "/assets/blog/antelope_canyon/cover.jpeg"
 date: "2020-03-16T05:35:07.322Z"
