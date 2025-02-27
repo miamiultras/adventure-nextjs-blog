@@ -62,42 +62,52 @@ let updateDOM: () => void;
  * Switch button to quickly toggle user preference.
  */
 const Switch = () => {
-  const [mode, setMode] = useState<ColorSchemePreference>(
-    () =>
-      ((typeof localStorage !== "undefined" &&
-        localStorage.getItem(STORAGE_KEY)) ??
-        "system") as ColorSchemePreference,
-  );
+  const [mounted, setMounted] = useState(false);
+  const [mode, setMode] = useState<ColorSchemePreference>("light"); // default to light
 
   useEffect(() => {
-    // store global functions to local variables to avoid any interference
+    const savedMode = localStorage.getItem(STORAGE_KEY) as ColorSchemePreference;
+    if (savedMode) {
+      setMode(savedMode);
+    }
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem(STORAGE_KEY, mode);
+      updateDOM?.();
+    }
+  }, [mode, mounted]);
+
+  useEffect(() => {
     updateDOM = window.updateDOM;
-    /** Sync the tabs */
     addEventListener("storage", (e: StorageEvent): void => {
       e.key === STORAGE_KEY && setMode(e.newValue as ColorSchemePreference);
     });
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, mode);
-    updateDOM();
-  }, [mode]);
-
-  /** toggle mode */
   const handleModeSwitch = () => {
     const index = modes.indexOf(mode);
     setMode(modes[(index + 1) % modes.length]);
   };
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return <div className={styles.switch} />;
+  }
+
   return (
     <button
-      suppressHydrationWarning
       className={styles.switch}
       onClick={handleModeSwitch}
+      aria-label={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
+      data-mode={mode}
     />
   );
 };
 
-const Script = memo(() => (
+const ThemeScript = memo(() => (
   <script
     dangerouslySetInnerHTML={{
       __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')`,
@@ -111,7 +121,7 @@ const Script = memo(() => (
 export const ThemeSwitcher = () => {
   return (
     <>
-      <Script />
+      <ThemeScript />
       <Switch />
     </>
   );
