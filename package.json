@@ -16,11 +16,11 @@
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.19.8",
+    "@types/node": "^20.19.9",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
